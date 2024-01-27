@@ -1,7 +1,10 @@
 import React, { useContext, useEffect } from 'react'
-import { PROVISION_STORE_LOGO } from './Constants/Constants';
+
 import { Link, useNavigate } from 'react-router-dom';
 import userContext from './ContextAPI/Context';
+
+import img1 from './Constants/Prathistha.png'
+
 
 
 const Header = () => {
@@ -17,7 +20,7 @@ const Header = () => {
   return (
     <div className={'w-screen mx-2 my-1 overflow-hidden p-3 border border-green-500 rounded-lg flex flex-col sm:flex-row sm:items-center'}>
       <div>
-        <img src={PROVISION_STORE_LOGO} alt="Header Logo" className='w-2/12'/>
+        <img src={img1} alt="Header Logo" className='w-2/12'/>
       </div>
       {Useloggedin&&(<div>
         <ul className='flex items-center  text-4xl '>

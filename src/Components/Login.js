@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext,  useState } from 'react'
 import { validation } from './Login functions/Validation';
 import { MakeAPICall } from './Login functions/MakeAPIcall';
 import { useNavigate } from 'react-router-dom';
@@ -9,7 +9,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [warning,setwarning] = useState(null);
     const navigate = useNavigate();
-    const {setlogindata,Useloggedin} =useContext(userContext);
+    const {setlogindata} =useContext(userContext);
     
     
     

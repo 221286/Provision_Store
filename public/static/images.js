@@ -1,0 +1,1 @@
+export const PROVISION_STORE_LOGOS= "http://www.hindigraphics.in/wp-content/uploads/2019/01/pro.png";
