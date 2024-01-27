@@ -1,19 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import Card from './Card';
-import userContext from './ContextAPI/Context';
-import { useNavigate } from 'react-router-dom';
+
 
 const Mainpage = () => {
     const [mapdata,setmapdata]=useState(null);
     const [filterdata,setfilterdata]= useState(null);
     const [search, setsearch]= useState("");
-    const {Useloggedin}=useContext(userContext);
-    const navigate=useNavigate();
-     useEffect(()=>{
-        if(!Useloggedin){
-            navigate("/");
-            }
-     })
+    
+     
     
     useEffect(()=>{
      fetchData();

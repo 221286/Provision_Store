@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { validation } from './Login functions/Validation';
 import { MakeAPICall } from './Login functions/MakeAPIcall';
 import { useNavigate } from 'react-router-dom';
@@ -9,16 +9,20 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [warning,setwarning] = useState(null);
     const navigate = useNavigate();
-    const {setlogindata} =useContext(userContext)
+    const {setlogindata,Useloggedin} =useContext(userContext);
+    
     
     
     const handleLogin = async () => {
-      try {
-        // Validate email & password
-        setwarning(validation(email,password))
-        if(!warning){
+      // Validate email & password
+      setwarning(validation(email,password))
+        if(warning){
           return;
         }
+      
+      try {
+        
+        
   // Convert password to SHA-256 format using Web Crypto API
   const encoder = new TextEncoder();
   const data = encoder.encode(password);
@@ -35,7 +39,7 @@ const Login = () => {
           // Handling successful login
           setlogindata(true);
           navigate("/Login/Mainpage");
-          console.log(response);
+          
         } else {
           // Handling login failure 
           setwarning('Login failed', response.statusText);
@@ -48,7 +52,7 @@ const Login = () => {
     
   
     return (<div className='h-full   w-screen flex justify-center items-center '>
-<div className='flex flex-col w-3/12 h-full p-4 m-2 border border-green-300 bg-green-600 rounded-lg'>
+<div className='flex flex-col w-full sm:w-3/12 lg:w-5/12 md:w-7/12 h-full p-4 m-2 border border-green-300 bg-green-600 rounded-lg'>
         <label className='mx-2'>Email:</label>
         <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} className='p-2 m-2 min-w-full border rounded-lg border-black'/>
   
