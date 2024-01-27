@@ -3,9 +3,14 @@ import Body from "./Body";
 import Mainpage from "./Components/Mainpage";
 import Login from "./Components/Login";
 import About from "./Components/About";
+//import userContext from "./Components/ContextAPI/Context";
+//import { useState } from "react";
 
-//import 
+
+
+
 function App() {
+ 
   const route = createBrowserRouter([{
     element:<Body></Body>,
     path:"/",
@@ -23,9 +28,13 @@ function App() {
 }]
   }])
   return (
-    <div className="App">
+    <div className="h-full">
       <RouterProvider router={route}>
-      <Body></Body>
+      
+
+        <Body></Body>
+        
+      
       </RouterProvider>
       
     </div>
