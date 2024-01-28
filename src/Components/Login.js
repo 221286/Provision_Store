@@ -16,9 +16,9 @@ const Login = () => {
     const handleLogin = async () => {
       // Validate email & password
       setwarning(validation(email,password))
-        if(warning){
-          return;
-        }
+        if(warning===null){
+          
+       
       
       try {
         
@@ -47,19 +47,25 @@ const Login = () => {
       } catch (error) {
         console.error('Error during login:', error);
       }
-    };
+    }
+  };
   
     
   
     return (<div className='h-full   w-screen flex justify-center items-center '>
 <div className='flex flex-col w-full sm:w-3/12 lg:w-5/12 md:w-7/12 h-full p-4 m-2 border border-green-300 bg-green-600 rounded-lg'>
-        <label className='mx-2'>Email:</label>
+       
+       <form onSubmit={(e)=>{e.preventDefault()}}>
+       <label className='mx-2'>Email:</label>
         <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} className='p-2 m-2 min-w-full border rounded-lg border-black'/>
   
         <label className='mx-2'>Password:</label>
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className='p-2 m-2 min-w-full border rounded-lg border-black' />
         <p className='m-2 text-red-600 font-extrabold text-2xl'>{warning}</p>
-        <button onClick={handleLogin} className='bg-green-200 rounded-lg my-10  ml-2 p-3'>Login</button>
+        <input onClick={handleLogin} className='bg-green-200 rounded-lg my-10 min-w-full ml-2 p-3' value="LOGIN" type='submit'/>
+
+       </form>
+        
       </div>
     </div>
       
